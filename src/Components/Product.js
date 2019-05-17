@@ -2,9 +2,16 @@ import React, {Component} from 'react';
 
 class Product extends Component {
     render(){
+        let {prodName, imageURL, price} = this.props; 
+
         return(
-            <div>
-                Product 
+            <div className='productBox'>
+            Product 1 
+                <img className='productImage' src={imageURL} alt=""/>
+            <div className='productInfo'>
+                <p>{prodName}</p>
+                <p>${price}</p>
+            </div>
             </div>
         )
     }

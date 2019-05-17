@@ -52,11 +52,11 @@ clearForm= (e) => {
       <Header/>
       <Dashboard
         inventoryList={this.state.inventoryList}  
+        imageUrl={this.state.imageUrl}
+        prodName={this.state.prodName}
+        price={this.state.price}
       />
       <Form
-        // imageUrl={this.state.imageUrl}
-        // prodName={this.state.prodName}
-        // price={this.state.price}
         handleInputChange={this.handleInputChange}
         clearForm={this.clearForm}
       />
