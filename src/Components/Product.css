@@ -1,0 +1,40 @@
+.productImage {
+    width: 300px; 
+    height: 75px; 
+    background-color: white; 
+    margin: 15px; 
+}
+
+.productBox {
+    display: flex; 
+    /* justify-content: space-between;  */
+    background-color: #D34735; 
+    width: 500px; 
+    height: 150px; 
+    position: relative; 
+    margin-top: 50px; 
+    margin-left: 20px;  
+}
+
+.productDetails {
+    margin-top: 10px; 
+    display: flex; 
+    justify-content: space-between; 
+    display: table-column; 
+}
+
+.buttonBox {
+    display: flex; 
+    justify-content: space-between;
+    display: inline;
+    margin-top: 125px; 
+}
+
+.buttons1 {
+    height: 20px; 
+}
+
+#deleteButt {
+    margin-right: 15px; 
+}
+

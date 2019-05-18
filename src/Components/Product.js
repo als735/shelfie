@@ -1,4 +1,5 @@
 import React, {Component} from 'react'; 
+import './Product.css'; 
 
 class Product extends Component {
     render(){
@@ -6,13 +7,17 @@ class Product extends Component {
 
         return(
             <div className='productBox'>
-            Product 1 
+            <div>
                 <img className='productImage' src={imageURL} alt=""/>
-            <div className='productInfo'>
-                <p>{prodName}</p>
+            </div>
+            <div className='productDetails'>
+                <p>Name:{prodName}</p>
                 <p>${price}</p>
             </div>
-            <button onClick={this.props.deleteProd}>Delete</button>
+            <div className='buttonBox'>
+                <button className='buttons1' id='deleteButt'onClick={this.props.handleDeleteClick}>Delete</button>
+                <button className='buttons1' onClick={this.props.handleEditClick}>Edit</button>
+            </div>
             </div>
         )
     }

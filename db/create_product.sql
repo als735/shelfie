@@ -1,2 +1,2 @@
 INSERT INTO shelfieproduct (name, price, image_url)
-VALUES ($1, $2, $3); 
+VALUES ($1, $2, $3) 

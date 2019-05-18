@@ -14,7 +14,7 @@ class App extends Component {
         imageURL: '',
         prodName: '',
         price: '',
-        inventoryList: [] 
+        inventoryList: [ ] 
     }
 }
 
@@ -48,20 +48,22 @@ clearForm= (e) => {
   render(){
     return (
       <div className="App">
-      <Header/>
-      <Dashboard
+      <Header className='headerComp'/>
+      <div className='mainContent'>
+      <Dashboard  className='dashboardComp'
         inventoryList={this.state.inventoryList}  
         imageURL={this.state.imageURL}
         prodName={this.state.prodName}
         price={this.state.price}
         product_id={this.state.product_id}
         componentDidMount={this.componentDidMount}
-      />
-      <Form
+        />
+      <Form className='formComp'
         handleInputChange={this.handleInputChange}
         clearForm={this.clearForm}
         componentDidMount={this.componentDidMount}
-      />
+        />
+      </div>
       </div>
     );
   }

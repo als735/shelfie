@@ -1,5 +1,6 @@
 import React, {Component} from 'react'; 
 import axios from 'axios'
+import './Form.css'; 
 
 class Form extends Component {
     
@@ -28,13 +29,16 @@ class Form extends Component {
         return(
             <div className='box'> 
                 <div className='inputContainer'>
-                    <input type="text" placeholder='Image URL' value={this.props.imageURL} name='imageURL' onChange={this.props.handleInputChange}/>
-                    <br/>
-                    <input type="text" placeholder='Product Name' value={this.props.prodName} name='prodName' onChange={this.props.handleInputChange}/>
-                    <br/>
-                    <input type="text" placeholder='Price' value={this.props.price} name='price' onChange={this.props.handleInputChange}/>
+                    <p>Image URL:</p>
+                    <input type="text" value={this.props.imageURL} name='imageURL' onChange={this.props.handleInputChange}/>
+
+                    <p>Product Name</p>
+                    <input type="text" value={this.props.prodName} name='prodName' onChange={this.props.handleInputChange}/>
+
+                    <p>Price:</p>
+                    <input type="text" placeholder='0' value={this.props.price} name='price' onChange={this.props.handleInputChange}/>
                 </div>
-                <div className='buttons'>
+                <div className='buttonBox2'>
                     <button onClick={this.props.clearForm}> Clear </button>
                     <button onClick={this.props.handleAddInventory}> Add Inventory </button>
                 </div>

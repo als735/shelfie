@@ -1,0 +1,18 @@
+.box {
+    height: 275px; 
+    width: 275px; 
+    display: flex; 
+    margin-top: 50px; 
+    justify-content: space-evenly; 
+    display: table-column; 
+    background-color: #3AD886; 
+    padding: 20px; 
+}
+
+.buttonBox2 {
+    margin-top: 20px; 
+}
+
+input {
+    width: 200px; 
+}
