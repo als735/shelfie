@@ -11,24 +11,34 @@ module.exports = {
             console.log(err)
             res.status(500).send('Girl you messed up!')
         })
-    } 
+    }, 
 
-//     // create: (req, res, next) => {
-//     //     const dbInstance = req.app.get('db'); 
+    create: (req, res, next) => {
+        const dbInstance = req.app.get('db'); 
+        const {name, price, image_url} = req.body; 
 
-//     //     dbInstance.add_new()
-//     //     .then(products => {
-//     //         console.log(products)
-//     //         res.status(200).send(products 'It worked!!! Woohoo!!!')
-//     //     })
-//     //     .catch(err => {
-//     //         console.log(err); 
-//     //         res.status(500).send('You messed up girl!')
-//     //     })
-//     // }, 
+        dbInstance.create_product([name, price, image_url])
+        .then((works) => {
+                res.status(200).send(works)
+                console.log(works)
+            })
+            .catch(err => {
+                console.log(err); 
+                res.status(500).send('You messed up girl!')
+             })
+    }, 
 
-//     // delete: (req, res, next) => {
-//     //     const dbInstance = req.app.get('db'); 
-//     // }
+    delete: (req, res, next) => {
+        const dbInstance = req.app.get('db'); 
+        const {product_id} = req.params; 
+
+        dbInstance.delete_product([product_id])
+        .then ( (deletes) => {
+            res.status(200).send(deletes)
+        })
+        .catch(err => {
+            res.status(500).send('You messed up girl!')
+        })
+    }
 
 }

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'; 
-// import axios from 'axios'; 
+import axios from 'axios'; 
 import './App.css';
 import Header from './Components/Header';
 import Dashboard from './Components/Dashboard';
@@ -10,23 +10,22 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state={
-        imageUrl: '',
+        product_id : '', 
+        imageURL: '',
         prodName: '',
         price: '',
-        inventoryList: [
-            {
-              name: 'abby',
-              price: 99,
-              image: 'img'
-            }, 
-            {
-              name: 'Jacob',
-              price: 100,
-              image: 'img'
-            }
-        ]
+        inventoryList: [] 
     }
 }
+
+componentDidMount= () => {
+  axios.get('/api/inventory').then( res => {
+      this.setState({
+          inventoryList: res.data
+      })
+  })
+}
+
 
 handleInputChange= (e) => {
   const target = e.target; 
@@ -40,7 +39,7 @@ handleInputChange= (e) => {
 
 clearForm= (e) => {
   this.setState({
-    imageUrl : '', 
+    imageURL : '', 
     prodName : '', 
     price : ''
   })
@@ -52,13 +51,16 @@ clearForm= (e) => {
       <Header/>
       <Dashboard
         inventoryList={this.state.inventoryList}  
-        imageUrl={this.state.imageUrl}
+        imageURL={this.state.imageURL}
         prodName={this.state.prodName}
         price={this.state.price}
+        product_id={this.state.product_id}
+        componentDidMount={this.componentDidMount}
       />
       <Form
         handleInputChange={this.handleInputChange}
         clearForm={this.clearForm}
+        componentDidMount={this.componentDidMount}
       />
       </div>
     );
