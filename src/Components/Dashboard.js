@@ -6,17 +6,18 @@ import './Dashboard.css';
 class Dashboard extends Component{
 
     handleDeleteClick = (product_id) => {
-        axios.delete(`/api/product/${product_id}`)
-        this.props.componentDidMount(); 
+        debugger
+        axios.delete(`/api/inventory/${product_id}`)
+        .then(() => {
+           this.props.getData();
+          })
     }
 
-
-
-    render(){
-    let {prodName, imageUrl, price} = this.props; 
-
-        let productList = this.props.inventoryList.map((i) => {
-            return <Product key={i.id} imageUrl={imageUrl} prodName={prodName} price={price} deleteProd={this.handleDeleteClick}/>
+    render(){ 
+    // let {prodName, imageUrl, price} = this.props; 
+     
+        let productList = this.props.inventoryList.map((e) => {
+            return <Product key={e.product_id} product_id={e.product_id} imageURL={e.image_url} prodName={e.name} price={e.price} deleteProd={this.handleDeleteClick}/>
         })
 
         return(

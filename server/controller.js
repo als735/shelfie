@@ -15,9 +15,9 @@ module.exports = {
 
     create: (req, res, next) => {
         const dbInstance = req.app.get('db'); 
-        const {name, price, image_url} = req.body; 
+        const {prodName, price, imageURL} = req.body; 
 
-        dbInstance.create_product([name, price, image_url])
+        dbInstance.create_product([prodName, price, imageURL])
         .then((works) => {
                 res.status(200).send(works)
                 console.log(works)
@@ -26,7 +26,7 @@ module.exports = {
                 console.log(err); 
                 res.status(500).send('You messed up girl!')
              })
-    }, 
+    },  
 
     delete: (req, res, next) => {
         const dbInstance = req.app.get('db'); 

@@ -1,2 +1,2 @@
-delete from shelfie_products
+delete from shelfieproduct
 where product_id = $1

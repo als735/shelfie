@@ -1,18 +1,30 @@
 .box {
-    height: 275px; 
-    width: 275px; 
+    height: 400px; 
+    width: 375px; 
     display: flex; 
     margin-top: 50px; 
-    justify-content: space-evenly; 
+    justify-content: space-between; 
+    align-content: center; 
     display: table-column; 
     background-color: #3AD886; 
-    padding: 20px; 
+    /* padding-left: 30px; */ 
+    padding: 10px;  
+    
 }
 
 .buttonBox2 {
-    margin-top: 20px; 
+    margin-top: 10px; 
 }
 
 input {
-    width: 200px; 
+    width: 275px; 
+}
+
+.formButts {
+    background-color: #D34735; 
+}
+
+.formProdImage {
+    height: 150px; 
+    justify-content: center; 
 }

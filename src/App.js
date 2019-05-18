@@ -12,6 +12,7 @@ class App extends Component {
     this.state={
         product_id : '', 
         imageURL: '',
+        placeHolderURL: 'https://www.lauriloewenberg.com/wp-content/uploads/2019/04/No_Image_Available.jpg', 
         prodName: '',
         price: '',
         inventoryList: [ ] 
@@ -19,13 +20,16 @@ class App extends Component {
 }
 
 componentDidMount= () => {
-  axios.get('/api/inventory').then( res => {
-      this.setState({
-          inventoryList: res.data
-      })
-  })
+  this.getData()
 }
 
+getData = () => {
+  axios.get('/api/inventory').then( res => {
+    this.setState({
+        inventoryList: res.data
+    })
+  })
+}
 
 handleInputChange= (e) => {
   const target = e.target; 
@@ -37,7 +41,8 @@ handleInputChange= (e) => {
   }); 
 }
 
-clearForm= (e) => {
+
+clearForm= (e) => { 
   this.setState({
     imageURL : '', 
     prodName : '', 
@@ -45,7 +50,21 @@ clearForm= (e) => {
   })
 }
 
+handleAddInventory= (e) => {
+  
+  axios.post('/api/product', {
+      prodName : this.state.prodName,
+      imageURL : this.state.imageURL,
+      price: this.state.price 
+  })
+  .then(res => {
+      this.getData(); 
+      this.clearForm(); 
+  })
+}
+
   render(){
+     
     return (
       <div className="App">
       <Header className='headerComp'/>
@@ -56,12 +75,16 @@ clearForm= (e) => {
         prodName={this.state.prodName}
         price={this.state.price}
         product_id={this.state.product_id}
-        componentDidMount={this.componentDidMount}
+        getData={this.getData}
         />
       <Form className='formComp'
         handleInputChange={this.handleInputChange}
         clearForm={this.clearForm}
-        componentDidMount={this.componentDidMount}
+        imageURL={this.state.imageURL}
+        prodName={this.state.prodName}
+        price={this.state.price}
+        placeHolderURL={this.state.placeHolderURL}
+        handleAddInventory={this.handleAddInventory}
         />
       </div>
       </div>

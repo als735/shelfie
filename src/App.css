@@ -1,5 +1,5 @@
 .mainContent {
     display: flex; 
     display: row; 
-    justify-content: space-around; 
+    justify-content: space-evenly; 
 }
